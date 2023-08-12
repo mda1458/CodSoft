@@ -19,6 +19,10 @@ html {
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
+* {
+    letter-spacing: 0.15rem
+}
+
 body {
     background-color: #e8e8e8;
     margin: 0;

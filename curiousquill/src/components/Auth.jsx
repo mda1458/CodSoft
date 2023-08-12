@@ -88,7 +88,7 @@ const Auth = () => {
       </div>
       
       {login ? (
-        <div className="flex flex-col gap-8 justify-between items-center w-[20rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
+        <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
           <div className="text-3xl font-bold">Login</div>
           {/* Form */}
           <form
@@ -165,7 +165,7 @@ const Auth = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-8 justify-between items-center w-[20rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
+        <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
           <div className="text-3xl font-bold">Sign Up</div>
           {/* Form */}
           <form
