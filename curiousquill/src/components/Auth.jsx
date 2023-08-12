@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import firebase from "firebase/compat/app";
+import logo from "../assets/logo.png";
 
 
 const Auth = () => {
@@ -81,10 +82,11 @@ const Auth = () => {
 
   return (
     <section className="flex flex-col gap-4 justify-center items-center h-screen">
-      {/* logo or name */}
-      <div className="text-5xl font-bold bg-slate-900 text-white rounded-xl p-4">
-        Codiyan
+      {/* logo */}
+      <div className="flex flex-col justify-center items-center">
+        <img src={logo} alt="logo" className="h-20" />
       </div>
+      
       {login ? (
         <div className="flex flex-col gap-8 justify-between items-center w-[20rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
           <div className="text-3xl font-bold">Login</div>
@@ -127,7 +129,7 @@ const Auth = () => {
             </div>
             <button
               type="submit"
-              className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-teal-500 to-purple-600 focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%] px-5 py-2.5 text-center"
+              className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%] px-5 py-2.5 text-center"
             >
               Login
             </button>
@@ -143,19 +145,19 @@ const Auth = () => {
             {/* Google */}
             <FcGoogle
               onClick={loginbyGoogle}
-              className="text-4xl cursor-pointer"
+              className="text-2xl cursor-pointer hover:scale-110"
             />
             {/* Facebook */}
             <FaFacebook
               onClick={loginbyFacebook}
-              className="text-4xl text-blue-700 cursor-pointer"
+              className="text-2xl text-blue-700 cursor-pointer hover:scale-110"
             />
           </div>
           {/* Signup link */}
           <div className="text-md text-slate-500 ">
             {"Don't"} have an account?{" "}
             <span
-              className="text-purple-600 cursor-pointer underline-offset-8 hover:underline"
+              className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
               onClick={() => setLogin(false)}
             >
               Sign Up
@@ -220,7 +222,7 @@ const Auth = () => {
             </div>
             <button
               type="submit"
-              className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-teal-500 to-purple-600 focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%]  px-5 py-2.5 text-center"
+              className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%]  px-5 py-2.5 text-center"
             >
               Sign Up
             </button>
@@ -229,7 +231,7 @@ const Auth = () => {
           <div className="text-md text-slate-500 ">
             Already have an account?{" "}
             <span
-              className="text-purple-600 cursor-pointer underline-offset-8 hover:underline"
+              className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
               onClick={() => setLogin(true)}
             >
               Login

@@ -1,13 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-family: 'Roboto', sans-serif;
+
+:root {
+    --cursorDefault: url(../cursors/default.svg), auto;
+    --cursorText: url(../cursors/text.svg), auto;
+    --cursorPointer: url(../cursors/pointer.svg), auto;
+    --cursorGrab: url(../cursors/grab.svg), auto;
+    --cursorGrabbed: url(../cursors/grabbed.svg), auto;
+
+    --colorGradient: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 body {
     background-color: #e8e8e8;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    cursor: var(--cursorDefault);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input[type=text],
+    input[type=tel],
+    input[type=email],
+    input[type=search],
+    input[type=password] {
+        cursor: var(--cursorText);
+    }
+
+    a,
+    a *,
+    button,
+    button *,
+    .cursor-pointer {
+        cursor: var(--cursorPointer);
+    }
 }
 
 .or-spacer {
