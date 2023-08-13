@@ -81,7 +81,7 @@ const Auth = () => {
   };
 
   return (
-    <section className="flex flex-col gap-4 justify-center items-center h-screen">
+    <section className="flex flex-col gap-4 justify-center items-center h-[97vh] mt-[3vh]">
       {/* logo */}
       <div className="flex flex-col justify-center items-center">
         <img src={logo} alt="logo" className="h-20" />
