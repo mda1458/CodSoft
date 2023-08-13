@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import BlogPage from "./components/Main/BlogPage"
 import Dashboard from "./components/Main/Dashboard"
+import Navbar from "./components/Navbar"
 
 
 const App = () => {
@@ -13,6 +14,9 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Auth />} />
+        </Routes>
+        <Navbar />
+        <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
         </Routes>

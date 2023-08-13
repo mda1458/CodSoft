@@ -4,7 +4,10 @@ const BlogPage = () => {
     const {slug} = useParams();
 
   return (
-    <div>I am the blog page with id {slug||"Undefined"}</div>
+    <div className="pt-20">
+      <div className="text-yellow-500 text-xl">I am BlogPage</div>
+      <div className="text-yellow-500 text-xl">Slug: {slug}</div>
+    </div>
   )
 }
 
