@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
-import PropTypes from "prop-types";
 
 const AuthContext = React.createContext();
 
@@ -19,7 +18,9 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       setLoading(false);
       if (user) {
-        navigate("/dashboard");
+        if (window.location.pathname === "/") {
+          navigate("/dashboard");
+        }
       } else {
         navigate("/");
       }
@@ -35,10 +36,6 @@ const AuthProvider = ({ children }) => {
       {!loading && children}  
     </AuthContext.Provider>
   );
-};
-
-AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired,
 };
 
 export default AuthProvider;
