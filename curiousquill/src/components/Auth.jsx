@@ -87,8 +87,9 @@ const Auth = () => {
         <img src={logo} alt="logo" className="h-20" />
       </div>
       
+      <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4 shadow-xl">
       {login ? (
-        <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
+        <>
           <div className="text-3xl font-bold">Login</div>
           {/* Form */}
           <form
@@ -163,15 +164,15 @@ const Auth = () => {
               Sign Up
             </span>
           </div>
-        </div>
+        </>
       ) : (
-        <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4">
+        <>
           <div className="text-3xl font-bold">Sign Up</div>
           {/* Form */}
           <form
             onSubmit={signupbyEmail}
             className="flex flex-col justify-center items-center gap-4 w-[80%]"
-          >
+            >
             <div className="relative z-0 w-full mb-6 group">
               <input
                 type="text"
@@ -184,7 +185,7 @@ const Auth = () => {
               <label
                 htmlFor="floating_name"
                 className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+                >
                 Name
               </label>
             </div>
@@ -200,7 +201,7 @@ const Auth = () => {
               <label
                 htmlFor="floating_email"
                 className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+                >
                 Email address
               </label>
             </div>
@@ -212,18 +213,18 @@ const Auth = () => {
                 className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
                 placeholder=" "
                 required
-              />
+                />
               <label
                 htmlFor="floating_password"
                 className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+                >
                 Password
               </label>
             </div>
             <button
               type="submit"
               className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%]  px-5 py-2.5 text-center"
-            >
+              >
               Sign Up
             </button>
           </form>
@@ -233,12 +234,13 @@ const Auth = () => {
             <span
               className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
               onClick={() => setLogin(true)}
-            >
+              >
               Login
             </span>
           </div>
-        </div>
+        </>
       )}
+      </div>
     </section>
   );
 }
