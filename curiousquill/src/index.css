@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --cursorDefault: url(../cursors/default.svg), auto;
+    --cursorText: url(../cursors/text.svg), auto;
+    --cursorPointer: url(../cursors/pointer.svg), auto;
+    --cursorGrab: url(../cursors/grab.svg), auto;
+    --cursorGrabbed: url(../cursors/grabbed.svg), auto;
+
+    --colorGradient: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+* {
+    letter-spacing: 0.15rem
+}
+
+body {
+    background-color: #e8e8e8;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    cursor: var(--cursorDefault);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    input[type=text],
+    input[type=tel],
+    input[type=email],
+    input[type=search],
+    input[type=password] {
+        cursor: var(--cursorText);
+    }
+
+    a,
+    a *,
+    button,
+    button *,
+    .cursor-pointer {
+        cursor: var(--cursorPointer);
+    }
+}
+
+.or-spacer {
+    width: inherit;
+    position: relative;
+}
+
+.or-spacer .mask {
+    overflow: hidden;
+    height: 20px;
+}
+
+.or-spacer .mask:after {
+    content: '';
+    display: block;
+    margin: -25px auto 0;
+    width: 100%;
+    height: 25px;
+    border-radius: 125px / 12px;
+    box-shadow: 0 0 8px black;
+}
+
+.or-spacer span {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -25px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px #999;
+    background: white;
+}
+
+.or-spacer span i {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-style: normal;
+    color: #999;
+}
