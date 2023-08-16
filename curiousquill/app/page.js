@@ -1,113 +1,242 @@
-import Image from 'next/image'
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { auth } from "./firebase";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import firebase from "firebase/compat/app";
+import logo from "../assets/logo.png";
 
-export default function Home() {
+const page = () => {
+  const [login, setLogin] = useState(true);
+
+  const loginbyEmail = (e) => {
+    e.preventDefault();
+    const email = e.target.floating_email.value;
+    const password = e.target.floating_password.value;
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        toast.success("Welcome Back");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  const loginbyGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then(() => {
+        toast.success("Welcome Back");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  const loginbyFacebook = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then(() => {
+        toast.success("Welcome Back");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  const signupbyEmail = (e) => {
+    e.preventDefault();
+    const email = e.target.floating_email.value;
+    const password = e.target.floating_password.value;
+    const name = e.target.floating_name.value;
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        var user = userCredential.user;
+        user
+          .updateProfile({
+            displayName: name,
+          })
+          .then(() => {
+            toast.success("Registered Successfully");
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <section className="flex flex-col gap-4 justify-center items-center h-[97vh] mt-[3vh]">
+      {/* logo */}
+      <div className="flex flex-col justify-center items-center">
+        <img src={logo} alt="logo" className="h-20" />
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex flex-col gap-8 justify-between items-center w-[21rem] md:w-[30rem] sm:h-[80vh] bg-white my-4 rounded-lg p-4 shadow-xl">
+        {login ? (
+          <>
+            <div className="text-3xl font-bold">Login</div>
+            {/* Form */}
+            <form
+              onSubmit={loginbyEmail}
+              className="flex flex-col justify-center items-center gap-4 w-[80%]"
+            >
+              <div className="relative z-0 w-full mb-6 group">
+                <input
+                  type="email"
+                  name="floating_email"
+                  id="floating_email"
+                  className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="floating_email"
+                  className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Email address
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-6 group">
+                <input
+                  type="password"
+                  name="floating_password"
+                  id="floating_password"
+                  className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="floating_password"
+                  className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Password
+                </label>
+              </div>
+              <button
+                type="submit"
+                className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%] px-5 py-2.5 text-center"
+              >
+                Login
+              </button>
+            </form>
+            <div className="or-spacer">
+              <div className="mask"></div>
+              <span>
+                <i>or</i>
+              </span>
+            </div>
+            {/* Sign in with other */}
+            <div className="flex gap-16">
+              {/* Google */}
+              <FcGoogle
+                onClick={loginbyGoogle}
+                className="text-2xl cursor-pointer hover:scale-110"
+              />
+              {/* Facebook */}
+              <FaFacebook
+                onClick={loginbyFacebook}
+                className="text-2xl text-blue-700 cursor-pointer hover:scale-110"
+              />
+            </div>
+            {/* Signup link */}
+            <div className="text-md text-slate-500 ">
+              {"Don't"} have an account?{" "}
+              <span
+                className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
+                onClick={() => setLogin(false)}
+              >
+                Sign Up
+              </span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-3xl font-bold">Sign Up</div>
+            {/* Form */}
+            <form
+              onSubmit={signupbyEmail}
+              className="flex flex-col justify-center items-center gap-4 w-[80%]"
+            >
+              <div className="relative z-0 w-full mb-6 group">
+                <input
+                  type="text"
+                  name="floating_name"
+                  id="floating_name"
+                  className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="floating_name"
+                  className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Name
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-6 group">
+                <input
+                  type="email"
+                  name="floating_email"
+                  id="floating_email"
+                  className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="floating_email"
+                  className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Email address
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-6 group">
+                <input
+                  type="password"
+                  name="floating_password"
+                  id="floating_password"
+                  className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-slate-600 peer"
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="floating_password"
+                  className="peer-focus:font-medium absolute text-md text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-slate-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Password
+                </label>
+              </div>
+              <button
+                type="submit"
+                className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%]  px-5 py-2.5 text-center"
+              >
+                Sign Up
+              </button>
+            </form>
+            {/* Login link */}
+            <div className="text-md text-slate-500 ">
+              Already have an account?{" "}
+              <span
+                className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
+                onClick={() => setLogin(true)}
+              >
+                Login
+              </span>
+            </div>
+          </>
+        )}
       </div>
+    </section>
+  );
+};
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default page;
