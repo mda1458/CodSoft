@@ -7,6 +7,8 @@ import BlogPage from "./components/Main/BlogPage"
 import Dashboard from "./components/Main/Dashboard"
 import Navbar from "./components/Navbar"
 import Blogs from "./components/Main/Blogs"
+import Create from "./components/Me/Create"
+import Edit from "./components/Me/Edit"
 
 
 const App = () => {
@@ -21,6 +23,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/:slug" element={<Blogs />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
+          <Route path="/me/create" element={<Create />} />
+          <Route path="/me/edit/:slug" element={<Edit />} />
         </Routes>
       </AuthProvider>
       <ToastContainer

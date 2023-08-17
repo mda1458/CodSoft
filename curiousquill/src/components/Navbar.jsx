@@ -66,10 +66,10 @@ const Navbar = () => {
             Science
           </Link>
           <Link
-            to="/my-blogs"
+            to="/technology"
             className="text-slate-600 hover:text-orange-400 hover:scale-110"
           >
-            My Blogs
+            Technology
           </Link>
         </div>
         {/* Hamburger */}
