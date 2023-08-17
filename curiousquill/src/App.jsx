@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css"
 import BlogPage from "./components/Main/BlogPage"
 import Dashboard from "./components/Main/Dashboard"
 import Navbar from "./components/Navbar"
-import Blogs from "./components/Main/Blogs"
+import Blogs from "./components/Main//Blogs/Blogs"
 import Create from "./components/Me/Create"
 import Edit from "./components/Me/Edit"
 
