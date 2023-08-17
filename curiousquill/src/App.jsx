@@ -23,8 +23,8 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/:slug" element={<Blogs />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
-          <Route path="/me/create" element={<Create />} />
-          <Route path="/me/edit/:slug" element={<Edit />} />
+          <Route path="/blog/create" element={<Create />} />
+          <Route path="/blog/edit/:slug" element={<Edit />} />
         </Routes>
       </AuthProvider>
       <ToastContainer

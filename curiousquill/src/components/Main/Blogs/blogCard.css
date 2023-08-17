@@ -87,54 +87,6 @@
     transform: translateY(0);
 }
 
-.card__footer {
-    position: absolute;
-    color: #a3a9ab;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    font-size: 11px;
-}
-
-.card__footer .icon--comment {
-    margin-left: 10px;
-}
-
-.icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 2px;
-}
-
-.icon:before {
-    display: inline-block;
-    text-align: center;
-    height: 14px;
-    width: 14px;
-    margin-top: -2px;
-    margin-right: 6px;
-}
-
-.icon--comment:before {
-    content: "\f0e6 ";
-    display: inline-block;
-    font: normal normal normal 16px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-}
-
-.icon--time:before {
-    content: "\f017 ";
-    display: inline-block;
-    font: normal normal normal 16px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-}
-
 @keyframes titleBlur {
     0% {
         opacity: 0.6;
@@ -156,5 +108,59 @@
     100% {
         opacity: 1;
         text-shadow: 0px 5px 5px rgba(0, 136, 204, 0);
+    }
+}
+
+/* For mobile */
+@media (max-width: 767px) {
+
+    .card__body {
+        height: 100%;
+    }
+
+    .card__thumb {
+        height: 100%;
+    }
+
+    .card__thumb img {
+        transform: scale(1);
+    }
+
+    .card__description {
+        display: none;
+    }
+
+    .card:hover .card__thumb {
+        height: 100%;
+    }
+
+    .card:hover .card__body {
+        height: 100%;
+    }
+
+    .card:hover .card__title {
+        animation: none;
+    }
+
+    .card:hover .card__subtitle {
+        animation: none;
+    }
+
+    .card:hover .card__description {
+        opacity: 1;
+        transition-delay: 0s;
+        transform: none;
+    }
+
+    /* make all positions static */
+    .card__body,
+    .card__thumb,
+    .card__title,
+    .card__subtitle {
+        position: static;
+    }
+
+    .card__thumb img {
+        transform: none;
     }
 }

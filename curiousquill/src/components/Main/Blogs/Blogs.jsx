@@ -40,10 +40,10 @@ const Blogs = () => {
   return (
     <section className="lg:mx-20 pt-20">
       <h1 className="text-3xl font-bold text-center">{slug.toUpperCase()}</h1>
-      <div className="flex items-center justify-center flex-wrap mt-10">
+      <div className="flex items-center justify-center flex-wrap mt-10 z-0">
         {loading? <Loader />
         : data.map((blog) => (
-          <BlogCard blog={blog} key={blog.id}/>
+          <BlogCard blog={blog} my={slug==="my-blogs"} key={blog.id}/>
         ))}
       </div>
     </section>

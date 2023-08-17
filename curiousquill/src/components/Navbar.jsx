@@ -80,7 +80,7 @@ const Navbar = () => {
           <GiHamburgerMenu className="h-4 w-4 text-[#BB3C0B] hover:text-orange-400" />
         </div>
         {showNav && (
-          <div className="fixed top-0 right-0 pt-8 flex justify-start items-center gap-36 flex-col w-screen h-screen bg-white backdrop-blur-2xl bg-opacity-90">
+          <div className="fixed top-0 right-0 pt-8 flex justify-start items-center gap-36 flex-col w-screen h-screen bg-white backdrop-blur-3xl bg-opacity-95">
             <div
               onClick={() => setShowNav(false)}
               className="md:hidden p-2 border border-orange-400 rounded-full"
@@ -117,11 +117,11 @@ const Navbar = () => {
                 Science
               </Link>
               <Link
-                to="/my-blogs"
+                to="/technology"
                 onClick={() => setShowNav(false)}
                 className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
               >
-                My Blogs
+                Technology
               </Link>
             </div>
           </div>
