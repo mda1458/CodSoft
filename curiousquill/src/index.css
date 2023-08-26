@@ -52,6 +52,7 @@ body {
     a *,
     button,
     button *,
+    select,
     .cursor-pointer {
         cursor: var(--cursorPointer);
     }
