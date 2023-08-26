@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../Loader/Loader";
 import { useAuth } from "../../../context/AuthContext";
 import BlogCard from "./BlogCard";
+import { TbMoodSadDizzy } from "react-icons/tb";
 
 const Blogs = () => {
   const { user } = useAuth();
@@ -43,8 +44,12 @@ const Blogs = () => {
       <div className="flex items-center justify-center flex-wrap mt-10 z-0">
         {loading ? (
           <Loader />
+        ) : data.length === 0 ? (
+          <div className="flex flex-col items-center justify-center">
+            <TbMoodSadDizzy className="text-5xl text-center text-yellow-600" />
+            <h1 className="text-2xl text-center">No Quills ✒️ Yet</h1>
+          </div>
         ) : (
-          data.length === 0? <h1 className="text-2xl font-bold text-center">No blogs found</h1> : 
           data.map((blog) => (
             <BlogCard blog={blog} my={slug === "my-blogs"} key={blog.id} />
           ))
