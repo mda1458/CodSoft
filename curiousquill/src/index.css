@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    cursor: var(--cursorDefault);
+    cursor: var(--cursorDefault) !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -43,7 +43,8 @@ body {
     input[type=tel],
     input[type=email],
     input[type=search],
-    input[type=password] {
+    input[type=password]
+     {
         cursor: var(--cursorText);
     }
 
@@ -100,4 +101,17 @@ body {
     line-height: 40px;
     font-style: normal;
     color: #999;
+}
+
+/* text editor */
+
+/* .tox-toolbar__primary, .tox-toolbar-overlord,  */
+.tox-editor-header, .tox-toolbar__primary,
+.tox-toolbar-overlord, .tox-edit-area__iframe {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.tox-statusbar {
+    display: none !important;
 }
