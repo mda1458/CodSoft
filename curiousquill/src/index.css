@@ -137,13 +137,6 @@ body {
 
 /* text editor */
 
-/* .tox-toolbar__primary, .tox-toolbar-overlord,  */
-.tox-editor-header, .tox-toolbar__primary,
-.tox-toolbar-overlord, .tox-edit-area__iframe {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
 .tox-statusbar {
     display: none !important;
 }
