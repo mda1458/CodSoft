@@ -18,11 +18,12 @@ const Blogs = () => {
       const fetchData = async () => {
         const db = firestore;
         const data = await db.collection("blogs")
-        .where("user", "==", user.uid)
+        .where("user", "==", db.doc(`users/${user.uid}`))
         .get();
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
       fetchData().then(() => setLoading(false));
+      console.log(data);
       return;
     }
     else {
@@ -41,7 +42,7 @@ const Blogs = () => {
   return (
     <section className="lg:mx-20 pt-20">
       <h1 className="text-3xl font-bold text-center">{slug.toUpperCase()}</h1>
-      <div className="flex items-center justify-center flex-wrap mt-10 z-0">
+      <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap mt-10 z-0">
         {loading ? (
           <Loader />
         ) : data.length === 0 ? (

@@ -39,12 +39,12 @@ const Create = () => {
   return (
     <div className="lg:mx-20 pt-20 flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold text-center">Share Your Thoughts</h1>
-      <div className="w-full flex justify-between items-center flex-wrap">
+      <div className="w-[95vw] sm:w-full flex flex-col sm:flex-row justify-between items-center flex-wrap">
         <label>Title</label>
         <input
           type="text"
           ref={title}
-          className="w-1/3 my-4 p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500"
+          className="sm:w-1/3 my-4 p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500"
           placeholder="Title"
           required
         />
@@ -53,11 +53,11 @@ const Create = () => {
           type="text"
           ref={img}
           placeholder="Image URL"
-          className="w-1/5 my-4 p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500" 
+          className="sm:w-1/5 my-4 p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500" 
           required
         />
         <label>Type</label>
-        <div className="w-1/4 my-4 p-2 border-2 border-gray-300 rounded-md">
+        <div className="sm:w-1/4 my-4 p-2 border-2 border-gray-300 rounded-md">
           <select ref={type} placeholder="type" className="w-full bg-transparent outline-none focus:border-yellow-500">
             <option value="technology">Technology</option>
             <option value="science">Science</option>
