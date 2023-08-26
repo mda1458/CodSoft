@@ -41,10 +41,14 @@ const Blogs = () => {
     <section className="lg:mx-20 pt-20">
       <h1 className="text-3xl font-bold text-center">{slug.toUpperCase()}</h1>
       <div className="flex items-center justify-center flex-wrap mt-10 z-0">
-        {loading? <Loader />
-        : data.map((blog) => (
-          <BlogCard blog={blog} my={slug==="my-blogs"} key={blog.id}/>
-        ))}
+        {loading ? (
+          <Loader />
+        ) : (
+          data.length === 0? <h1 className="text-2xl font-bold text-center">No blogs found</h1> : 
+          data.map((blog) => (
+            <BlogCard blog={blog} my={slug === "my-blogs"} key={blog.id} />
+          ))
+        )}
       </div>
     </section>
   );
