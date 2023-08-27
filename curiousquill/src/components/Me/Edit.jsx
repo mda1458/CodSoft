@@ -108,7 +108,7 @@ const Edit = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-2xl font-bold text-center">Write</h1>
-        <div className="w-full">
+        <div className="w-[88vw]">
           <Editor
             apiKey={apiKey}
             onInit={(evt, editor) => (editorRef.current = editor)}
