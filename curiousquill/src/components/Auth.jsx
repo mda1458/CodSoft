@@ -141,7 +141,7 @@ const Auth = () => {
                 type="submit"
                 className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%] px-5 py-2.5 text-center"
               >
-                {loading? <ButtonLoader/> : "Login"}
+                {loading ? <ButtonLoader /> : "Login"}
               </button>
             </form>
             <div className="or-spacer">
@@ -170,7 +170,7 @@ const Auth = () => {
                 className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
                 onClick={() => setLogin(false)}
               >
-                {loading? <ButtonLoader/> : "Sign Up"}
+                Sign Up
               </span>
             </div>
           </>
@@ -234,7 +234,7 @@ const Auth = () => {
                 type="submit"
                 className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%]  px-5 py-2.5 text-center"
               >
-                Sign Up
+                {loading ? <ButtonLoader /> : "Sign Up"}
               </button>
             </form>
             {/* Login link */}
