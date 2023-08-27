@@ -5,12 +5,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import firebase from "firebase/compat/app";
 import logo from "../assets/logo.png";
+import ButtonLoader from "./Loader/ButtonLoader";
 
 
 const Auth = () => {
   const [login, setLogin] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const loginbyEmail = (e) => {
+    setLoading(true)
     e.preventDefault();
     const email = e.target.floating_email.value;
     const password = e.target.floating_password.value;
@@ -20,9 +23,11 @@ const Auth = () => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         toast.success("Welcome Back");
+        setLoading(false)
       })
       .catch((error) => {
         toast.error(error.message);
+        setLoading(false)
       });
   };
 
@@ -53,6 +58,7 @@ const Auth = () => {
     
 
   const signupbyEmail = (e) => {
+    setLoading(true)
     e.preventDefault();
     const email = e.target.floating_email.value;
     const password = e.target.floating_password.value;
@@ -66,16 +72,19 @@ const Auth = () => {
             })
             .then(() => {
                 toast.success("Registered Successfully");
+                setLoading(false)
             }
             )
             .catch((error) => {
                     toast.error(error.message);
+                    setLoading(false)
                 }
             );
         }
         )
         .catch((error) => {
                 toast.error(error.message);
+                setLoading(false)
             }
         );
   };
@@ -132,7 +141,7 @@ const Auth = () => {
                 type="submit"
                 className="text-white transition-transform hover:scale-105 bg-gradient-to-r hover:bg-gradient-to-l from-[#ff4e00] to-[#ec9f05] focus:ring-4 focus:outline-none font-medium rounded-xl text-md w-full sm:w-[33%] px-5 py-2.5 text-center"
               >
-                Login
+                {loading? <ButtonLoader/> : "Login"}
               </button>
             </form>
             <div className="or-spacer">
@@ -161,7 +170,7 @@ const Auth = () => {
                 className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
                 onClick={() => setLogin(false)}
               >
-                Sign Up
+                {loading? <ButtonLoader/> : "Sign Up"}
               </span>
             </div>
           </>
