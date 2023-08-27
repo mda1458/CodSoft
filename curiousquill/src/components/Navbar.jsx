@@ -135,7 +135,7 @@ const Navbar = () => {
               onClick={() => setShowMenu(!showMenu)}
             />
             {showMenu && (
-              <div className="absolute top-20 right-5 w-64 rounded-md bg-[#ffffffe0] shadow-lg py-2">
+              <div className="absolute top-20 right-5 w-64 rounded-md bg-[#ffffffe0] shadow-lg py-2 z-10">
                 <div className="flex flex-col items-center justify-center">
                   <p className="px-4 py-2 text-sm">{user.displayName}</p>
                   <Link
