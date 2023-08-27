@@ -18,7 +18,7 @@ const Blogs = () => {
       const fetchData = async () => {
         const db = firestore;
         const data = await db.collection("blogs")
-        .where("user", "==", db.doc(`users/${user.uid}`))
+        .where("user.id", "==", user.uid)
         .get();
         setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };

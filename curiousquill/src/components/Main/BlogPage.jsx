@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { firestore } from "../../firebase";
 import Loader from "../Loader/Loader";
 import { Parser } from "html-to-react"
+import avatar from "../../assets/avatar.png";
 
 const BlogPage = () => {
     const [loading, setLoading] = useState(true)
@@ -31,6 +32,11 @@ const BlogPage = () => {
     
       <section className="lg:mx-20 pt-20">
         <h1 className="text-2xl font-bold text-center">{blog.title}</h1>
+        {/* Author */}
+        <div className="flex justify-center items-center my-5">
+          <img src={blog.user.photoURL || avatar} alt={blog.user.displayName} className="w-10 h-10 rounded-full" />
+          <p className="ml-2">{blog.user.displayName}</p>
+        </div>
         <img src={blog.img} alt={blog.title} className="fixed top-20 left-0 -z-10 w-screen blur-md opacity-60" />
         <div className="mt-5 mb-10 text-justify">
           {
