@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { firebaseTimestamp, firestore } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
+import ButtonLoader from "../Loader/ButtonLoader";
 
 const Create = () => {
+  const [loading, setLoading] = useState(false)
   const { user } = useAuth();
   const apiKey = import.meta.env.VITE_TINY_API_KEY;
   const title = useRef(null);
@@ -12,28 +15,40 @@ const Create = () => {
   const desc = useRef(null);
   const editorRef = useRef(null);
   const handleCreate = () => {
+    if(!title.current.value || !editorRef.current.getContent() || !img.current.value || !type.current.value || !desc.current.value){
+      toast.error("Please fill all the fields")
+      return
+    }
+    setLoading(true)
     const db = firestore;
     const data = {
       title: title.current.value,
       type: type.current.value,
       content: editorRef.current.getContent(),
       createdAt: firebaseTimestamp(),
-      user: db.doc("users/" + user.uid),
+      user: {
+        id: user.uid,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+      },
       img: img.current.value,
       desc: desc.current.value,
     };
-    console.log(data);
 
     db.collection("blogs").doc().set(data).then(() => {
-      console.log("Document successfully written!");
+      toast.success("Blog Created Successfully")
       title.current.value = "";
       editorRef.current.setContent("");
+      img.current.value = "";
+      type.current.value = "";
+      desc.current.value = "";
+      setLoading(false)
     })
     .catch((error) => {
-      console.error("Error writing document: ", error);
+      toast.error("Error adding document: ", error);
+      setLoading(false)
     });
-
-    console.log(data);
+    
   };
 
   return (
@@ -82,20 +97,20 @@ const Create = () => {
             init={{
               height: 500,
               menubar: false,
-              plugins: ["lists", "emoticons", "preview", "codesample"],
+              plugins: ["lists", "emoticons", "preview", "codesample", "code"],
               toolbar:
                 "undo redo| blocks | bold italic underline | forecolor backcolor | \
               alignleft aligncenter alignright alignjustify | bullist numlist | \
               blockquote superscript subscript emoticons codesample | \
-              outdent indent | removeformat | preview",
+              outdent indent | removeformat | preview | code",
             }}
           />
         </div>
         <button
-          className="bg-green-700 text-white px-4 py-2 rounded-md my-4 hover:scale-105"
+          className="bg-green-700 w-32 text-white px-4 py-2 rounded-md my-4 hover:scale-105"
           onClick={handleCreate}
         >
-          Create
+          {loading?<ButtonLoader/>:"Create"}
         </button>
       </div>
     </div>

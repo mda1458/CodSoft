@@ -1,12 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { firebaseTimestamp, firestore } from "../../firebase";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import ButtonLoader from "../Loader/ButtonLoader";
 
 
 const Edit = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { slug } = useParams();
   const { user } = useAuth();
@@ -18,6 +20,7 @@ const Edit = () => {
   const desc = useRef(null);
   const editorRef = useRef(null);
   const handleUpdate = () => {
+    setLoading(true);
     const db = firestore;
     const data = {
       title: title.current.value,
@@ -27,20 +30,19 @@ const Edit = () => {
       img: img.current.value,
       desc: desc.current.value,
     };
-    console.log(data);
 
     db.collection("blogs")
       .doc(slug)
       .update(data)
       .then(() => {
         toast.success("Blog Updated Successfully")
-        navigate("/my-blogs")
+        setLoading(false);
       })
       .catch((error) => {
         toast.error("Error updating document: ", error);
+        setLoading(false);
       });
 
-    console.log(data);
   };
 
   useEffect(()=>{
@@ -126,7 +128,7 @@ const Edit = () => {
           className="bg-green-700 text-white px-4 py-2 rounded-md my-4 hover:scale-105"
           onClick={handleUpdate}
         >
-          Update
+          {loading ? <ButtonLoader /> : "Update"}
         </button>
       </div>
     </div>
