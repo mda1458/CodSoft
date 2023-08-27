@@ -35,7 +35,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="h-16 sm:h-20 bg-[rgba(255,255,255,0.18)] shadow-sm backdrop-blur-sm fixed w-full">
+    <div className="h-16 sm:h-20 bg-[rgba(255,255,255,0.18)] shadow-sm backdrop-blur-sm fixed w-full z-10">
       <div className="flex justify-between items-center px-4 py-2 z-10">
         <Link to="/dashboard">
           <img src={logo} alt="" className="h-12 sm:h-16" />
@@ -139,7 +139,7 @@ const Navbar = () => {
                 <div className="flex flex-col items-center justify-center">
                   <p className="px-4 py-2 text-sm">{user.displayName}</p>
                   <Link
-                    to="/me"
+                    to="/profile"
                     className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
                   >
                     Profile
