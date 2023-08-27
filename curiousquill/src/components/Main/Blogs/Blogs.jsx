@@ -40,7 +40,7 @@ const Blogs = () => {
   }, [slug]);
 
   return (
-    <section className="lg:mx-20 pt-20">
+    <section className="pt-20">
       <h1 className="text-3xl font-bold text-center">{slug.toUpperCase()}</h1>
       <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap mt-10 z-0">
         {loading ? (
