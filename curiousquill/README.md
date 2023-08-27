@@ -27,3 +27,6 @@ User can delete the post by clicking on the delete button. The post will be dele
 - React Toastify
 - TinyMCE
 
+## Deployed Link:
+https://curious-quill.netlify.app/
+
