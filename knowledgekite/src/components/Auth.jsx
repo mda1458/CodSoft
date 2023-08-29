@@ -167,7 +167,7 @@ const Auth = () => {
             <div className="text-md text-slate-500 ">
               {"Don't"} have an account?{" "}
               <span
-                className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
+                className="text-slate-600 cursor-pointer underline-offset-8 hover:underline"
                 onClick={() => setLogin(false)}
               >
                 Sign Up
@@ -241,7 +241,7 @@ const Auth = () => {
             <div className="text-md text-slate-500 ">
               Already have an account?{" "}
               <span
-                className="text-orange-600 cursor-pointer underline-offset-8 hover:underline"
+                className="text-slate-600 cursor-pointer underline-offset-8 hover:underline"
                 onClick={() => setLogin(true)}
               >
                 Login

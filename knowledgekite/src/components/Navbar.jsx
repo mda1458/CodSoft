@@ -43,31 +43,31 @@ const Navbar = () => {
         <div className="hidden md:flex gap-4 w-[50%] md:gap-8">
           <Link
             to="/dashboard"
-            className="text-slate-600 hover:text-orange-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-400 hover:scale-110"
           >
             Dashboard
           </Link>
           <Link
             to="/business"
-            className="text-slate-600 hover:text-orange-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-400 hover:scale-110"
           >
             Business
           </Link>
           <Link
             to="/culture"
-            className="text-slate-600 hover:text-orange-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-400 hover:scale-110"
           >
             Culture
           </Link>
           <Link
             to="/science"
-            className="text-slate-600 hover:text-orange-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-400 hover:scale-110"
           >
             Science
           </Link>
           <Link
             to="/technology"
-            className="text-slate-600 hover:text-orange-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-400 hover:scale-110"
           >
             Technology
           </Link>
@@ -75,51 +75,51 @@ const Navbar = () => {
         {/* Hamburger */}
         <div
           onClick={() => setShowNav(true)}
-          className="md:hidden p-2 border border-orange-400 rounded-full"
+          className="md:hidden p-2 border border-slate-400 rounded-full"
         >
-          <GiHamburgerMenu className="h-4 w-4 text-[#BB3C0B] hover:text-orange-400" />
+          <GiHamburgerMenu className="h-4 w-4 text-[#BB3C0B] hover:text-slate-400" />
         </div>
         {showNav && (
           <div className="fixed top-0 right-0 pt-8 flex justify-start items-center gap-36 flex-col w-screen h-screen bg-white backdrop-blur-3xl bg-opacity-95">
             <div
               onClick={() => setShowNav(false)}
-              className="md:hidden p-2 border border-orange-400 rounded-full"
+              className="md:hidden p-2 border border-slate-400 rounded-full"
             >
-              <RxCross1 className="h-4 w-4 text-[#BB3C0B] hover:text-orange-400" />
+              <RxCross1 className="h-4 w-4 text-[#BB3C0B] hover:text-slate-400" />
             </div>
             <div className="flex flex-col items-center justify-center gap-8">
               <Link
                 to="/dashboard"
                 onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
               >
                 Dashboard
               </Link>
               <Link
                 to="/business"
                 onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
               >
                 Business
               </Link>
               <Link
                 to="/culture"
                 onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
               >
                 Culture
               </Link>
               <Link
                 to="/science"
                 onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
               >
                 Science
               </Link>
               <Link
                 to="/technology"
                 onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
               >
                 Technology
               </Link>
@@ -140,13 +140,13 @@ const Navbar = () => {
                   <p className="px-4 py-2 text-sm">{user.displayName}</p>
                   <Link
                     to="/profile"
-                    className="px-4 py-2 text-lg text-center hover:bg-orange-400 hover:text-white w-full"
+                    className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
                   >
                     Profile
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="px-4 py-2 text-lg hover:bg-orange-400 hover:text-white w-full"
+                    className="px-4 py-2 text-lg hover:bg-slate-400 hover:text-white w-full"
                   >
                     Logout
                   </button>
