@@ -20,7 +20,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'thumnail',
+      name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
       options: {
@@ -31,7 +31,20 @@ export default defineType({
       name: 'pdf',
       title: 'PDF',
       type: 'file',
-    })
+    }),
+    defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Concise Notes', value: 'concise-notes'},
+          {title: 'Short Tricks', value: 'short-tricks'},
+          {title: 'Past Papers', value: 'past-papers'},
+          {title: 'Mcqs bank', value: 'mcqs-bank'}
+        ],
+      },
+    }),
   ],
 
   preview: {

@@ -1,6 +1,21 @@
-import sanityClient from "@sanity/client";
+import {createClient} from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
-export default sanityClient({
-  projectId: "4u5g138f", // find this at manage.sanity.io or in your sanity.json
-  dataset: "production", // this is from those question during 'sanity init'
+const token = import.meta.env.VITE_SANITY_TOKEN;
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
+const sanityClient = createClient({
+  projectId,
+  dataset: "production",
+  useCdn: true,
+  token,
 });
+
+
+const builder = imageUrlBuilder(sanityClient);
+
+export const urlFor = (source) => {
+  return builder.image(source);
+};
+
+export default sanityClient;
+

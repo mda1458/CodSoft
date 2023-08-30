@@ -10,10 +10,18 @@ html {
 }
 
 body {
+    background: url(./assets/nust.png) no-repeat center 2rem fixed;
     background-color: #e8e8e8;
+    background-size: cover;
+    background-blend-mode: exclusion;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+
+#root {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
 }
 
 .or-spacer {
