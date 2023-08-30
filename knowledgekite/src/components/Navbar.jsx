@@ -48,28 +48,28 @@ const Navbar = () => {
             Dashboard
           </Link>
           <Link
-            to="/business"
+            to="/concise-notes"
             className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
-            Business
+            Notes
           </Link>
           <Link
-            to="/culture"
+            to="/short-tricks"
             className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
-            Culture
+            Short Tricks
           </Link>
           <Link
-            to="/science"
+            to="/mcqs-bank"
             className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
-            Science
+            MCQ Bank
           </Link>
           <Link
-            to="/technology"
+            to="/past-papers"
             className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
-            Technology
+            Past Papers
           </Link>
         </div>
         {/* Hamburger */}
@@ -90,38 +90,33 @@ const Navbar = () => {
             <div className="flex flex-col items-center justify-center gap-8">
               <Link
                 to="/dashboard"
-                onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
+                className="text-slate-600 hover:text-slate-900 hover:scale-110"
               >
                 Dashboard
               </Link>
               <Link
-                to="/business"
-                onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
+                to="/concise-notes"
+                className="text-slate-600 hover:text-slate-900 hover:scale-110"
               >
-                Business
+                Notes
               </Link>
               <Link
-                to="/culture"
-                onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
+                to="/short-tricks"
+                className="text-slate-600 hover:text-slate-900 hover:scale-110"
               >
-                Culture
+                Short Tricks
               </Link>
               <Link
-                to="/science"
-                onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
+                to="/mcqs-bank"
+                className="text-slate-600 hover:text-slate-900 hover:scale-110"
               >
-                Science
+                MCQ Bank
               </Link>
               <Link
-                to="/technology"
-                onClick={() => setShowNav(false)}
-                className="px-4 py-2 text-lg text-center hover:bg-slate-400 hover:text-white w-full"
+                to="/past-papers"
+                className="text-slate-600 hover:text-slate-900 hover:scale-110"
               >
-                Technology
+                Past Papers
               </Link>
             </div>
           </div>
