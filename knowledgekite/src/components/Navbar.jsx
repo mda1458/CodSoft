@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
-// import logo from "../assets/logo.png"
-// import avatar from "../assets/avatar.png"
+import logo from "../assets/logo.svg"
+import avatar from "../assets/avatar.png"
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { auth } from "../firebase";
@@ -38,36 +38,36 @@ const Navbar = () => {
     <div className="h-16 sm:h-20 bg-[rgba(255,255,255,0.18)] shadow-sm backdrop-blur-sm fixed w-full z-10">
       <div className="flex justify-between items-center px-4 py-2 z-10">
         <Link to="/dashboard">
-          {/* <img src={logo} alt="" className="h-12 sm:h-16" /> */}
+          <img src={logo} alt="" className="h-12 sm:h-16" />
         </Link>
         <div className="hidden md:flex gap-4 w-[50%] md:gap-8">
           <Link
             to="/dashboard"
-            className="text-slate-600 hover:text-slate-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
             Dashboard
           </Link>
           <Link
             to="/business"
-            className="text-slate-600 hover:text-slate-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
             Business
           </Link>
           <Link
             to="/culture"
-            className="text-slate-600 hover:text-slate-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
             Culture
           </Link>
           <Link
             to="/science"
-            className="text-slate-600 hover:text-slate-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
             Science
           </Link>
           <Link
             to="/technology"
-            className="text-slate-600 hover:text-slate-400 hover:scale-110"
+            className="text-slate-600 hover:text-slate-900 hover:scale-110"
           >
             Technology
           </Link>
@@ -77,7 +77,7 @@ const Navbar = () => {
           onClick={() => setShowNav(true)}
           className="md:hidden p-2 border border-slate-400 rounded-full"
         >
-          <GiHamburgerMenu className="h-4 w-4 text-[#BB3C0B] hover:text-slate-400" />
+          <GiHamburgerMenu className="h-4 w-4 text-[#BB3C0B] hover:text-slate-900" />
         </div>
         {showNav && (
           <div className="fixed top-0 right-0 pt-8 flex justify-start items-center gap-36 flex-col w-screen h-screen bg-white backdrop-blur-3xl bg-opacity-95">
@@ -85,7 +85,7 @@ const Navbar = () => {
               onClick={() => setShowNav(false)}
               className="md:hidden p-2 border border-slate-400 rounded-full"
             >
-              <RxCross1 className="h-4 w-4 text-[#BB3C0B] hover:text-slate-400" />
+              <RxCross1 className="h-4 w-4 text-[#BB3C0B] hover:text-slate-900" />
             </div>
             <div className="flex flex-col items-center justify-center gap-8">
               <Link
@@ -128,12 +128,12 @@ const Navbar = () => {
         )}
         {user && (
           <>
-            {/* <img
+            <img
               className="rounded-full w-12 h-12 cursor-pointer"
               src={user.photoURL ? user.photoURL : avatar}
               alt="avatar"
               onClick={() => setShowMenu(!showMenu)}
-            /> */}
+            />
             {showMenu && (
               <div className="absolute top-20 right-5 w-64 rounded-md bg-[#ffffffe0] shadow-lg py-2 z-10">
                 <div className="flex flex-col items-center justify-center">
