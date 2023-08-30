@@ -90,9 +90,9 @@ const Auth = () => {
   };
 
   return (
-    <section className="flex flex-col gap-4 justify-center items-center h-[97vh] mt-[3vh]">
+    <section className="flex flex-col gap-4 justify-center items-center h-screen">
       {/* logo */}
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center pt-[2rem]">
         <img src={logo} alt="logo" className="h-20" />
       </div>
 
