@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -36,7 +37,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col justify-center pt-8 mx-4 md:mx-16">
         <h1 className="text-slate-900 font-extrabold text-xl sm:text-5xl lg:text-6xl tracking-tight text-center font-sans">
-          What makes us different? 🤔
+          What makes us unique? 🤔
         </h1>
         <div className="text-slate-700 text-lg lg:text-xl pt-6">
           We understand that the NUST Entrance Test can be challenging, and
@@ -45,20 +46,20 @@ const Dashboard = () => {
           and efficiently, ensuring that you're fully equipped to tackle the
           test with confidence. Here you find!
         </div>
-        <ul className="text-slate-700 text-lg lg:text-xl pt-6">
-          <li className="text-slate-900 font-bold list-disc">
+        <div className="text-slate-700 text-lg lg:text-xl pt-6 flex flex-wrap justify-center gap-6">
+          <button className="text-white bg-slate-900 hover:bg-slate-800 font-bold rounded-2xl shadow-lg shadow-slate-500 transition-all py-2 px-4">
             <Link to="/concise-notes">Concise and Comprehensive Notes</Link>
-          </li>
-          <li className="text-slate-900 font-bold list-disc">
+          </button>
+          <button className="text-white bg-slate-900 hover:bg-slate-800 font-bold rounded-2xl shadow-lg shadow-slate-500 transition-all py-2 px-4">
             <Link to="/short-tricks">Short Tricks</Link>
-          </li>
-          <li className="text-slate-900 font-bold list-disc">
+          </button>
+          <button className="text-white bg-slate-900 hover:bg-slate-800 font-bold rounded-2xl shadow-lg shadow-slate-500 transition-all py-2 px-4">
             <Link to="/mcqs-bank">Practice Questions</Link>
-          </li>
-          <li className="text-slate-900 font-bold list-disc">
+          </button>
+          <button className="text-white bg-slate-900 hover:bg-slate-800 font-bold rounded-2xl shadow-lg shadow-slate-500 transition-all py-2 px-4">
             <Link to="/past-papers">Past Papers</Link>
-          </li>
-        </ul>
+          </button>
+        </div>
       </div>
     </div>
   );
