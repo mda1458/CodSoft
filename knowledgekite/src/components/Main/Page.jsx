@@ -1,25 +1,25 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import sanityClient, { urlFor } from "../../client";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
 import { useEffect } from "react";
 
 const Page = () => {
+  const navigate = useNavigate();
   const [category, setCategory] = useState(null);
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const { name } = useParams();
   useEffect(() => {
+    setCategory(null);
     window.scrollTo(0, 0);
     const getCategory = () => {
-      setLoading(true);
       sanityClient.fetch(`*[_type == "category"]`).then((data) => {
-        setCategory(data.filter((item) => item.slug.current === name)[0]);
+        if (data===null) navigate("/404");
+        else setCategory(data.filter((item) => item.slug.current === name)[0]);
       });
-      setLoading(false);
     };
     const getContent = () => {
-      setLoading(true);
       sanityClient.fetch(`*[_type == "content"]`).then((data) => {
         data = data.filter((item) => item.type === name)
         console.log(data);
@@ -31,17 +31,18 @@ const Page = () => {
         });
         setContent(data);
       });
-      setLoading(false);
     };
+    setLoading(true);
     getCategory();
     getContent();
+    setLoading(false);
   }, [name]);
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-20 min-h-screen main">
       <div className="flex flex-col justify-center pt-8 mx-4 md:mx-16">
-        {loading ? (
+        {loading || category === null ? (
           <Loader />
-        ) : (category &&
+        ) : 
           (<>
             <h1 className="text-slate-900 font-extrabold text-xl sm:text-5xl lg:text-6xl tracking-tight text-center font-sans">
               {category.title.toUpperCase()}
@@ -74,7 +75,7 @@ const Page = () => {
                 </a>
               ))}
             </div>
-          </>)
+          </>
         )}
       </div>
     </div>

@@ -19,9 +19,9 @@ body {
     overflow-x: hidden;
 }
 
-#root {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(4px);
+.main {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(3px);
 }
 
 .or-spacer {

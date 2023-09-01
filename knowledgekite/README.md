@@ -1,8 +1,23 @@
-# React + Vite
+# Knowledge Kite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Online Entry test preparation application. I have done this project as a part of my Internship at CodSoft.
 
-Currently, two official plugins are available:
+![CodSoft](../pics/3.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features:
+#### Authentication:
+User can authenticate using Google or Facebook or Email and Password. The authentication is done using Firebase Authentication.
+
+## Technologies Used:
+- React JS
+- Firebase
+- Vite
+- Sanity
+- Tailwind CSS
+- React Icons
+- React Router DOM
+- React Toastify
+
+## Deployed Link:
+https://knowledgekite.netlify.app/
+

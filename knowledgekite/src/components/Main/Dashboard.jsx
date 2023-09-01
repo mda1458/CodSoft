@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="py-20">
+    <div className="py-20 main">
       <div className="flex flex-col justify-center max-w-5xl mx-4 pt-4 md:mx-auto">
         <div className="text-slate-900 font-bold text-md lg:text-lg pb-4">
           illuminating the journey of intellectual might

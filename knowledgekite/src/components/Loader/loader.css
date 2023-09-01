@@ -6,8 +6,8 @@
   height: 96px;
   width: 96px;
   animation: rotate_3922 1.2s linear infinite;
-  background-color: slategray;
-  background-image: linear-gradient(slategray, #ffffff);
+  background-color: rgb(0, 58, 116);
+  background-image: linear-gradient(rgb(0, 58, 116), #ffffff);
 }
 
 .containers span {
@@ -15,8 +15,8 @@
   border-radius: 50%;
   height: 100%;
   width: 100%;
-  background-color: slategray;
-  background-image: linear-gradient(slategray, #ffffff);
+  background-color: rgb(0, 58, 116);
+  background-image: linear-gradient(rgb(0, 58, 116), #ffffff);
 }
 
 .containers span:nth-of-type(1) {

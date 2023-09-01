@@ -15,30 +15,13 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Auth />} />
-          <Route path="/dashboard" element={
-            <>
-              <Navbar />
-              <Dashboard />
-            </>
-          } />
-          <Route path="/:name" element={
-            <>
-              <Navbar />
-              <Page />
-            </>
-          } />
-          <Route path="/:name/:slug" element={
-            <>
-              <Navbar />
-              <Content />
-            </>
-          } />
-          <Route path="*" element={
-            <>
-              <Navbar />
-              <NoPage />
-            </>
-          } />
+        </Routes>
+        <Navbar />
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/:name" element={<Page />} />
+          <Route path="/:name/:id" element={<Content />} />
+          <Route path="/404" element={<NoPage />} />
         </Routes>
       </AuthProvider>
       <ToastContainer
